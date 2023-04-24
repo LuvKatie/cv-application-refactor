@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [general, setGeneral] = useState([{
+    name: {text: '', edit: ''},
+    email: {text: '', edit: ''},
+    phone: {text: '', edit: ''}
+  }])
+
+  const [education, setEducation] = useState([{
+    school: {text: '', edit: ''},
+    study: {text: '', edit: ''},
+    date: {start: '', end: '', edit: ''}
+  }])
+
+  const [practical, setPractical] = useState([{
+    company: {text: '', edit: ''},
+    position: {text: '', edit: ''},
+    skills: {start: '', end: '', edit: ''}
+  }])
 }
 
 export default App;
