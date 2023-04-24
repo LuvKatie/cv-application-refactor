@@ -1,0 +1,27 @@
+:root {
+    --tea: #C7F0BD;
+    --powder: #FFFCF9;
+    --mint: #D7FFF1;
+    --lgreen: #AAFCB8;
+    --mgreen: #8CD790;
+    --cambridge: #77AF9C;
+    --castleton: #285943;
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--tea);
+}
+
+#root {
+    min-height: inherit;
+}
+
+.main {
+    display: grid;
+    grid-template: 1fr / 1fr 400px 3fr 1fr;
+
+    min-height: inherit;
+}

@@ -1,0 +1,64 @@
+.cv-forms {
+    display: grid;
+    grid-template: 0.8fr 0.8fr 0.8fr 0.2fr / 1fr 1fr;
+    grid-column: 2 / 3;
+    padding: 24px;
+    background-color: var(--cambridge);
+    border-radius: 32px 0px 0px 32px;
+}
+
+.general-info,
+.education-info,
+.practical-info {
+    grid-column: 1 / -1;
+}
+
+.cv-forms input[type="date"] {
+    margin-bottom: 12px;
+}
+
+.cv-forms input:focus,
+.cv-forms textarea:focus {
+    outline: none;
+}
+
+.cv-forms input, 
+.cv-forms textarea {
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid var(--mint);
+    padding: 6px;
+    font-size: 15px;
+    color: var(--castleton);
+}
+
+.cv-forms textarea {
+    resize: none;
+}
+
+.cv-forms form {
+    display: grid;
+    align-self: center;
+    width: 100%;
+}
+
+.cv-forms label {
+    font-weight: 600;
+    color: var(--mint);
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#submit-cv,
+#edit-cv {
+    justify-self: center;
+    align-self: center;
+
+    font-weight: 600;
+    color: var(--castleton);
+    background-color: var(--powder);
+    border-radius: 32px;
+    border: none;
+    width: 50%;
+    height: 60%;
+}
