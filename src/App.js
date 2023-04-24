@@ -28,7 +28,12 @@ const App = () => {
   }
 
   function handleInput(value, id) {
-    setGeneral((existingValues) => ({...existingValues, [id]: {text: value, edit: ''}}))
+    setGeneral((existingValues) => 
+    ({...existingValues, 
+      [id]: {
+        text: value, 
+        edit: ''
+      }}))
   }
 
   return (
