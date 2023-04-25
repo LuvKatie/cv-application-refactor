@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const General = (props) => {
 
     function handleChange(e) {
-        props.onChange(e.target.value, e.target.dataset.id)
+        props.onChange(e.target.value, e.target.dataset.id, props.setState)
     }
 
     return (
