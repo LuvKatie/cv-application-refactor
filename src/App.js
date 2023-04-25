@@ -17,7 +17,7 @@ const App = () => {
   const [education, setEducation] = useState({
     school: {text: '', edit: ''},
     study: {text: '', edit: ''},
-    date: {start: '', end: '', edit: ''}
+    date: {start: '', end: '', startEdit: '', endEdit: ''}
   })
 
   const [practical, setPractical] = useState({
@@ -26,18 +26,12 @@ const App = () => {
     skills: {text: '', edit: ''}
   })
 
-  function testObject() {
-    console.log(general)
-    console.log(education)
-    console.log(practical)
-  }
-
-  function handleText(value, id, setState) {
+  function handleText(value, id, setState, property, state) {
     setState((existingValues) => 
     ({...existingValues, 
       [id]: {
-        text: value, 
-        edit: ''
+        ...state[id],
+        [property]: value
       }}))
   }
 
@@ -51,15 +45,45 @@ const App = () => {
     }))
   }
 
+  function onSubmit() {
+    const setStates = [setGeneral, setEducation, setPractical]
+    const states = [general, education, practical]
+
+    for (let i = 0; i <= states.length; i ++) {
+
+      for (const prop in states[i]) {
+        if (prop !== "date") {
+          setStates[i]((state) => ({
+            ...state,
+            [prop]: {
+              text: state[prop].edit,
+              edit: ''
+            }
+          }))
+        } else {
+          setStates[i]((state) => ({
+            ...state,
+            [prop]: {
+              start: state[prop].startEdit,
+              end: state[prop].endEdit,
+              startEdit: '',
+              endEdit: ''
+            }
+          }))
+        }
+      }
+
+    }
+  }
+
   return (
     <div className="main">
       <div className="cv-forms">
         <General general={general} onChange={handleText} setState={setGeneral}/>
         <Education education={education} onChange={handleText} changeDate={handleDate} setState={setEducation}/>
         <Practical practical={practical} onChange={handleText} setState={setPractical} />
-        <button id='submit-cv'>Submit</button>
+        <button id='submit-cv' onClick={onSubmit}>Submit</button>
         <button id='edit-cv'>Edit</button>
-      <button onClick={testObject}>Test</button>
       </div>
       
       <div className='cv-application'>

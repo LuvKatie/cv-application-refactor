@@ -3,7 +3,7 @@ import React from "react";
 const Practical = (props) => {
 
     function handleChange(e) {
-        props.onChange(e.target.value, e.target.dataset.id, props.setState);
+        props.onChange(e.target.value, e.target.dataset.id, props.setState, 'edit', props.practical);
     }
 
     return (
@@ -11,18 +11,18 @@ const Practical = (props) => {
             <form>
                 <label htmlFor="companyInput">Company</label>
                 <input type="text" id="companyInput" data-id="company" 
-                placeholder="Google | Amazon | Microsoft" value={props.practical.company.text}
+                placeholder="Google | Amazon | Microsoft" value={props.practical.company.edit}
                 onChange={handleChange}></input>
                 
                 <label htmlFor="positionInput">Poisition Title</label>
                 <input type="text" id="positionInput" data-id="position" 
-                placeholder="Senior Software Engineer" value={props.practical.position.text}
+                placeholder="Senior Software Engineer" value={props.practical.position.edit}
                 onChange={handleChange}></input>
 
                 <label htmlFor="positionInput">Main Tasks / Skills</label>
                 <textarea id="positionInput" data-id="skills" 
                 rows={4} cols={40} maxLength={320} 
-                placeholder={`320 characters max \nEx. HTML, CSS, Javascript, React`} value={props.practical.skills.text}
+                placeholder={`320 characters max \nEx. HTML, CSS, Javascript, React`} value={props.practical.skills.edit}
                 onChange={handleChange}/>
             </form>
         </div>
