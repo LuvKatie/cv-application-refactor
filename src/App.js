@@ -76,6 +76,36 @@ const App = () => {
     }
   }
 
+  function onEdit() {
+    const setStates = [setGeneral, setEducation, setPractical]
+    const states = [general, education, practical]
+
+    for (let i = 0; i <= states.length; i ++) {
+
+      for (const prop in states[i]) {
+
+        if (prop !== "date") {
+          setStates[i]((state) => ({
+            ...state,
+            [prop]: {
+              ...prop,
+              edit: state[prop].text
+            }
+          }))
+        } else {
+          setStates[i]((state) => ({
+            ...state,
+            [prop]: {
+              ...prop,
+              startEdit: state[prop].start,
+              endEdit: state[prop].end
+            }
+          }))
+        }
+      }
+    }
+  }
+
   return (
     <div className="main">
       <div className="cv-forms">
@@ -83,7 +113,7 @@ const App = () => {
         <Education education={education} onChange={handleText} changeDate={handleDate} setState={setEducation}/>
         <Practical practical={practical} onChange={handleText} setState={setPractical} />
         <button id='submit-cv' onClick={onSubmit}>Submit</button>
-        <button id='edit-cv'>Edit</button>
+        <button id='edit-cv' onClick={onEdit}>Edit</button>
       </div>
       
       <div className='cv-application'>
