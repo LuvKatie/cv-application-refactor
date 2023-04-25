@@ -52,6 +52,7 @@ const App = () => {
     for (let i = 0; i <= states.length; i ++) {
 
       for (const prop in states[i]) {
+
         if (prop !== "date") {
           setStates[i]((state) => ({
             ...state,
@@ -72,7 +73,6 @@ const App = () => {
           }))
         }
       }
-
     }
   }
 
